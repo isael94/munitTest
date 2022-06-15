@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core" xmlns:http="http://www.mulesoft.org/schema/mule/http"
+	xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd">
+	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="0f59657a-a41e-4444-a8af-5103c2bde96a" >
+		<http:listener-connection host="0.0.0.0" port="8081" />
+	</http:listener-config>
+	<flow name="munit-testFlow" doc:id="0dcb8bf4-84e7-4bab-9581-a9b0363f03fd" >
+		<http:listener doc:name="Listener" doc:id="1cc7b5f8-0674-4db2-8d27-0426dbeca430" config-ref="HTTP_Listener_config" path="/munit"/>
+		<set-variable value='#["Activo"]' doc:name="Set Variable" doc:id="8751da32-3ba3-4194-b70c-97cbb58fceeb" variableName="demo"/>
+		<set-payload value="#[vars.demo]" doc:name="Set Payload" doc:id="44fa9bfb-22ec-4f2c-86a9-11b978174344" />
+	</flow>
+</mule>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:munit="http://www.mulesoft.org/schema/mule/munit" xmlns:munit-tools="http://www.mulesoft.org/schema/mule/munit-tools"
+	xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xsi:schemaLocation="
+		http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+		http://www.mulesoft.org/schema/mule/munit http://www.mulesoft.org/schema/mule/munit/current/mule-munit.xsd
+		http://www.mulesoft.org/schema/mule/munit-tools  http://www.mulesoft.org/schema/mule/munit-tools/current/mule-munit-tools.xsd">
+	<munit:config name="munit-test-test-suite.xml" />
+	<munit:test name="munit-test-test-suite-munit-testFlowTest" doc:id="dec3f5a2-3bbf-4a97-bec6-d5fb8d5398a3" description="Test">
+		<munit:execution >
+			<flow-ref doc:name="Flow-ref to munit-testFlow" doc:id="dce0bc5f-931d-43ae-b104-51efd049fe17" name="munit-testFlow"/>
+		</munit:execution>
+		<munit:validation >
+			<munit-tools:assert-that doc:name="Assert that" doc:id="edfce00a-bbcb-490c-930c-2ab1cfbba5f8" expression="#[payload]" is="#[MunitTools::equalTo('Activo')]" message="Payload Inválido"/>
+		</munit:validation>
+	</munit:test>
+
+
+</mule>
